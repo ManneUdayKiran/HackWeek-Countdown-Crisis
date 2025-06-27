@@ -2,16 +2,29 @@ import { useEffect, useState } from 'react';
 
 export default function CommunityInfo() {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMessage = async () => {
-      const res = await fetch('/cosc.json');
-      const data = await res.json();
-      setData(data);
+      try {
+        const res = await fetch('/cosc.json');
+        if (!res.ok) throw new Error('Failed to fetch');
+        const data = await res.json();
+        setData(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchMessage();
   }, []);
+
+  if (loading) return <div className="text-center">Loading...</div>;
+  if (error) return <div className="text-center text-red-500">Error: {error}</div>;
+  if (!data) return null;
 
   return (
     <div className="text-center mb-6">
