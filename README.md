@@ -6,6 +6,10 @@ A Next.js application that displays information about COSC (CBIT Open Source Com
 
 **Production URL**: https://countdown-crisis-clhq628qa-uday-kirans-projects-a417c70c.vercel.app
 
+## Screenshots
+![image](https://github.com/user-attachments/assets/90a0002e-6ee4-4ba1-a381-e74b9ee63516)
+
+
 ## 🐛 Issues Fixed
 
 ### 1. Critical Null Reference Error in CommunityInfo Component
